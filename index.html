@@ -10,14 +10,13 @@
     <div class="container">
         <div id="tela-inicio">
             <h1>Descubra sua Casa de Hogwarts</h1>
-            <p>O Chapéu Seletor aguarda sua resposta.</p>
-            <button onclick="iniciarQuiz()" class="btn-principal">Começar Quiz</button>
+            <p class="subtitulo">O Chapéu Seletor está pronto para te avaliar.</p>
+            <button id="btn-iniciar" class="btn-principal">Começar Quiz</button>
         </div>
 
         <div id="quiz" class="hidden">
             <p id="pergunta" class="pergunta-texto"></p>
-            <div id="opcoes-container" class="opcoes">
-                </div>
+            <div id="opcoes-container" class="opcoes"></div>
         </div>
 
         <div id="resultado" class="hidden">
@@ -25,9 +24,13 @@
             <h2 id="casa-nome"></h2>
             <p id="frase-roupa" class="frase-destaque"></p>
             <p id="descricao" class="descricao-texto"></p>
-            <button onclick="recomeçar()" class="btn-principal" style="margin-top: 20px;">Refazer Teste</button>
+            <button onclick="location.reload()" class="btn-principal" style="margin-top: 20px;">Refazer Teste</button>
         </div>
     </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
     <script src="script.js"></script>
 </body>
