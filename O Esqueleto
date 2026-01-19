@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>O Chapéu Seletor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>O Chapéu Seletor</h1>
+        <div id="quiz">
+            <p id="pergunta">O que você mais valoriza?</p>
+            <div class="opcoes">
+                <button onclick="escolher('coragem')">A bravura acima de tudo</button>
+                <button onclick="escolher('sabedoria')">O conhecimento infinito</button>
+                <button onclick="escolher('ambicao')">O poder e o destino</button>
+                <button onclick="escolher('lealdade')">A justiça e o trabalho árduo</button>
+            </div>
+        </div>
+        <div id="resultado" class="hidden">
+            <h2 id="casa-nome"></h2>
+            <p id="descricao"></p>
+            <button onclick="resetar()">Tentar Novamente</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
