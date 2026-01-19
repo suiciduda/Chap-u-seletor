@@ -1,66 +1,72 @@
 const perguntas = [
     {
-        texto: "Caminhas por um corredor de pedra onde as tochas se apagam à tua passagem. No fim, encontras uma porta sem maçaneta. Como escolhes atravessar o limiar?",
+        texto: "Se você visse alguém sendo injustiçado na rua, o que faria?",
         opcoes: [
-            { texto: "Bato com o punho cerrado, pronto para enfrentar o perigo.", casa: "grifinoria" },
-            { texto: "Analiso as runas gravadas na pedra, procurando o mecanismo.", casa: "corvinal" },
-            { texto: "Murmuro palavras de poder, moldando a porta à minha vontade.", casa: "sonserina" },
-            { texto: "Espero pacientemente que a porta se abra para quem tem cortesia.", casa: "lufalufa" }
+            { texto: "Interviria na hora, não importa o risco.", casa: "grifinoria" },
+            { texto: "Pensaria em uma forma inteligente de ajudar sem me expor.", casa: "corvinal" },
+            { texto: "Avaliaria se ajudar me traria algum benefício ou problema.", casa: "sonserina" },
+            { texto: "Apoiaria a pessoa e veria se ela está bem.", casa: "lufalufa" }
         ]
     },
     {
-        texto: "Olhas para um espelho envolto em névoa que reflete o teu maior desejo. O que vês na moldura de prata?",
+        texto: "Em um trabalho de grupo, qual é o seu papel?",
         opcoes: [
-            { texto: "Eu mesmo no topo de uma montanha, com a bandeira da vitória.", casa: "grifinoria" },
-            { texto: "Uma biblioteca infinita com todos os segredos do cosmos.", casa: "corvinal" },
-            { texto: "Um trono de onde governo com justiça e mão de ferro.", casa: "sonserina" },
-            { texto: "Uma mesa farta, rodeada por amigos e família sob o sol.", casa: "lufalufa" }
+            { texto: "O que toma a frente e lidera com coragem.", casa: "grifinoria" },
+            { texto: "O que faz as pesquisas e traz as ideias.", casa: "corvinal" },
+            { texto: "O que garante que o grupo vença e se destaque.", casa: "sonserina" },
+            { texto: "O que ajuda todo mundo e mantém a harmonia.", casa: "lufalufa" }
         ]
     },
     {
-        texto: "Numa floresta antiga, o caminho bifurca-se. Onde os teus pés te levam antes da lua subir?",
+        texto: "O que você prefere fazer no seu tempo livre?",
         opcoes: [
-            { texto: "O trilho iluminado por relâmpagos, onde o desafio reside.", casa: "grifinoria" },
-            { texto: "O caminho que serpenteia por observatórios abandonados.", casa: "corvinal" },
-            { texto: "O atalho sombrio que promete a rota mais rápida ao topo.", casa: "sonserina" },
-            { texto: "O caminho largo e florido que passa pelas aldeias.", casa: "lufalufa" }
+            { texto: "Praticar esportes ou sair em uma aventura.", casa: "grifinoria" },
+            { texto: "Ler, aprender algo novo ou jogar algo difícil.", casa: "corvinal" },
+            { texto: "Organizar meus planos e metas para o futuro.", casa: "sonserina" },
+            { texto: "Ficar com amigos, família ou cuidar do jardim.", casa: "lufalufa" }
         ]
     },
     {
-        texto: "Sobre um altar de mármore, repousam quatro artefactos. Apenas um pode ser teu. Qual reclamas?",
+        texto: "Como você lida com um grande desafio?",
         opcoes: [
-            { texto: "Uma espada de aço dobrado que nunca perde o fio.", casa: "grifinoria" },
-            { texto: "Um pergaminho que contém uma pergunta sem resposta.", casa: "corvinal" },
-            { texto: "Um anel que permite influenciar os pensamentos alheios.", casa: "sonserina" },
-            { texto: "Uma taça de madeira que nunca deixa de transbordar água.", casa: "lufalufa" }
+            { texto: "Vou com tudo, enfrentando meus medos.", casa: "grifinoria" },
+            { texto: "Analiso todos os lados antes de agir.", casa: "corvinal" },
+            { texto: "Uso qualquer meio necessário para vencer.", casa: "sonserina" },
+            { texto: "Trabalho duro e sou paciente até conseguir.", casa: "lufalufa" }
         ]
     },
     {
-        texto: "Como gostarias de ser lembrado nos versos de uma lenda daqui a mil anos?",
+        texto: "Se encontrasse uma carteira perdida, qual seria sua reação?",
         opcoes: [
-            { texto: "Pela coragem indomável perante a escuridão.", casa: "grifinoria" },
-            { texto: "Pela sabedoria que guiou nações perdidas.", casa: "corvinal" },
-            { texto: "Pela astúcia que permitiu erguer um legado do nada.", casa: "sonserina" },
-            { texto: "Pela bondade que curou as feridas do mundo.", casa: "lufalufa" }
+            { texto: "Procuraria o dono imediatamente, agindo com honra.", casa: "grifinoria" },
+            { texto: "Olharia os documentos para achar o dono logicamente.", casa: "corvinal" },
+            { texto: "Veria se há algo útil para mim primeiro.", casa: "sonserina" },
+            { texto: "Esperaria por perto para ver se o dono volta buscando.", casa: "lufalufa" }
         ]
     }
 ];
 
 const detalhesCasas = {
-    grifinoria: { nome: "Grifinória", desc: "Onde habitam os de coração indômito. Tua bravura ecoará pelos salões de pedra." },
-    corvinal: { nome: "Corvinal", desc: "Onde a mente e o aprendizado são soberanos. Teu intelecto será tua bússola." },
-    sonserina: { nome: "Sonserina", desc: "Onde os astutos usam os meios para alcançar a grandeza. Teu destino é o poder." },
-    lufalufa: { nome: "Lufa-Lufa", desc: "Onde a paciência e a lealdade são a base de tudo. Tua justiça será tua força." }
+    grifinoria: { nome: "Grifinória", frase: "Suas roupas devem ser vermelhas e douradas.", desc: "Você foi escolhido pela sua bravura e coragem inabalável." },
+    sonserina: { nome: "Sonserina", frase: "Suas roupas devem ser verdes e pratas.", desc: "Sua ambição e astúcia te levarão a grandes destinos." },
+    corvinal: { nome: "Corvinal", frase: "Suas roupas devem ser azuis e bronze.", desc: "Sua inteligência e sede de saber são seus maiores tesouros." },
+    lufalufa: { nome: "Lufa-Lufa", frase: "Suas roupas devem ser amarelas e pretas.", desc: "Sua lealdade, paciência e bondade são admiráveis." }
 };
 
 let perguntaAtual = 0;
 let pontuacao = { grifinoria: 0, corvinal: 0, sonserina: 0, lufalufa: 0 };
 
+function iniciarQuiz() {
+    document.getElementById('tela-inicio').classList.add('hidden');
+    document.getElementById('quiz').classList.remove('hidden');
+    mostrarPergunta();
+}
+
 function mostrarPergunta() {
     const p = perguntas[perguntaAtual];
+    document.getElementById('num-pergunta').innerText = perguntaAtual + 1;
     document.getElementById('pergunta').innerText = p.texto;
     const botoes = document.querySelectorAll('.btn-opcao');
-    
     p.opcoes.forEach((opcao, index) => {
         botoes[index].innerText = opcao.texto;
         botoes[index].onclick = () => responder(opcao.casa);
@@ -70,31 +76,25 @@ function mostrarPergunta() {
 function responder(casa) {
     pontuacao[casa]++;
     perguntaAtual++;
-
-    if (perguntaAtual < perguntas.length) {
-        mostrarPergunta();
-    } else {
-        finalizar();
-    }
+    if (perguntaAtual < perguntas.length) { mostrarPergunta(); } 
+    else { finalizar(); }
 }
 
 function finalizar() {
     document.getElementById('quiz').classList.add('hidden');
     const resultadoDiv = document.getElementById('resultado');
     resultadoDiv.classList.remove('hidden');
-
     const vencedora = Object.keys(pontuacao).reduce((a, b) => pontuacao[a] > pontuacao[b] ? a : b);
-    
+    document.body.className = 'resultado-' + vencedora;
     document.getElementById('casa-nome').innerText = detalhesCasas[vencedora].nome;
+    document.getElementById('frase-roupa').innerText = detalhesCasas[vencedora].frase;
     document.getElementById('descricao').innerText = detalhesCasas[vencedora].desc;
 }
 
 function resetar() {
     perguntaAtual = 0;
     pontuacao = { grifinoria: 0, corvinal: 0, sonserina: 0, lufalufa: 0 };
-    document.getElementById('quiz').classList.remove('hidden');
+    document.body.className = '';
     document.getElementById('resultado').classList.add('hidden');
-    mostrarPergunta();
+    document.getElementById('tela-inicio').classList.remove('hidden');
 }
-
-mostrarPergunta();
