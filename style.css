@@ -28,9 +28,16 @@ h1 {
     margin-bottom: 10px;
 }
 
-.logo-hat {
-    font-size: 50px;
-    margin-bottom: 10px;
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.img-hat {
+    width: 120px; /* Ajuste o tamanho conforme preferir */
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); /* Adiciona um brilho dourado suave */
 }
 
 /* Estilo das Perguntas */
