@@ -3,28 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hogwarts: O Chapéu Seletor</title>
+    <title>O Chapéu Seletor - Aniversário</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div id="tela-inicio">
-            <h1>Descubra sua Casa de Hogwarts</h1>
-            <p>O Chapéu Seletor aguarda sua resposta.</p>
-            <button id="btn-iniciar" class="btn-principal">Começar Quiz</button>
-        </div>
+    <div id="main-container">
+        <header>
+            <div class="logo-hat">🎩</div>
+            <h1>O Chapéu Seletor</h1>
+            <p id="intro-text">Descubra sua casa e a cor que você deve usar na minha festa!</p>
+        </header>
 
-        <div id="quiz" class="hidden">
-            <p id="pergunta" class="pergunta-texto"></p>
-            <div id="opcoes-container" class="opcoes"></div>
-        </div>
+        <main id="quiz-content">
+            <div id="question-box">
+                <h2 id="question-title"></h2>
+                <div id="options-list"></div>
+            </div>
 
-        <div id="resultado" class="hidden">
-            <h2 id="casa-nome"></h2>
-            <p id="frase-roupa" class="frase-destaque"></p>
-            <p id="descricao" class="descricao-texto"></p>
-            <button onclick="location.reload()" class="btn-principal" style="margin-top: 20px;">Refazer Teste</button>
-        </div>
+            <div id="result-screen" class="hidden">
+                <p class="reveal-text">O Chapéu decidiu...</p>
+                <div id="house-display">
+                    <h2 id="house-result"></h2>
+                    <p id="house-colors"></p>
+                    <div id="house-description"></div>
+                </div>
+                <button onclick="location.reload()" class="btn-restart">Refazer Teste</button>
+            </div>
+        </main>
     </div>
     <script src="script.js"></script>
 </body>
