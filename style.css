@@ -1,63 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=EB+Garamond:wght@400;700&display=swap');
-
+/* Configurações Gerais */
 body {
-    background-color: #1a1a1a;
-    color: #e0d8c3;
-    font-family: 'EB Garamond', serif;
+    background-color: #121212;
+    color: #f4e4bc;
+    font-family: 'Special Elite', serif;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    transition: background-color 0.5s ease;
-}
-
-.container {
-    width: 90%;
-    max-width: 450px;
-    background: rgba(0, 0, 0, 0.9);
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    border: 1px solid #c5a059;
-    box-sizing: border-box;
-}
-
-h1 { font-family: 'MedievalSharp', cursive; font-size: 1.8rem; color: #c5a059; margin-bottom: 20px; }
-
-.btn-principal {
-    background: #c5a059;
-    color: #000;
-    border: none;
-    padding: 18px;
-    font-weight: bold;
-    font-size: 1.2rem;
-    border-radius: 8px;
-    width: 100%;
-    cursor: pointer;
-}
-
-.pergunta-texto { font-size: 1.3rem; font-weight: bold; margin-bottom: 25px; line-height: 1.4; }
-.opcoes { display: flex; flex-direction: column; gap: 12px; }
-
-.btn-opcao {
-    background: #2a2a2a;
-    color: #fff;
-    border: 1px solid #4a3b22;
     padding: 15px;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    width: 100%;
-    cursor: pointer;
 }
 
-.hidden { display: none !important; }
+#main-container {
+    background: #1e1e1e;
+    border: 3px solid #8e7341;
+    border-radius: 20px;
+    padding: 25px;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
 
-/* CORES OFICIAIS */
-.resultado-grifinoria { background-color: #740001 !important; color: #eeba30 !important; }
-.resultado-sonserina { background-color: #1a472a !important; color: #aaaaaa !important; }
-.resultado-corvinal { background-color: #0e1a40 !important; color: #946b2d !important; }
-.resultado-lufalufa { background-color: #ecb939 !important; color: #000 !important; }
+h1 {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    margin-bottom: 10px;
+}
 
-.frase-destaque { font-weight: bold; font-size: 1.2rem; margin: 15px 0; }
-#casa-nome { font-family: 'MedievalSharp', cursive; font-size: 2.8rem; margin: 10px 0; }
+.logo-hat {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+/* Estilo das Perguntas */
+#question-title {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+button {
+    background-color: #2c2c2c;
+    color: #f4e4bc;
+    border: 2px solid #8e7341;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    font-family: 'Special Elite', serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:active {
+    background-color: #8e7341;
+    color: #fff;
+}
+
+/* Resultados e Cores (Fiéis aos Livros) */
+.hidden { display: none; }
+
+#house-result {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    margin: 10px 0;
+    text-transform: uppercase;
+}
+
+/* Classes de cores específicas */
+.Gryffindor { color: #ae0001; } /* Vermelho */
+.Slytherin { color: #2a623d; }  /* Verde */
+.Ravenclaw { color: #222f5b; }  /* Azul */
+.Hufflepuff { color: #ecb939; } /* Amarelo */
+
+#house-colors {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+#house-description {
+    line-height: 1.6;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.btn-restart {
+    margin-top: 20px;
+    background: #8e7341;
+}
