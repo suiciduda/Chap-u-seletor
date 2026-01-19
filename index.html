@@ -3,28 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Descubra sua Casa de Hogwarts</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Hogwarts: Descubra sua Casa</title>
+    <style>
+        /* Estilos e Cores Oficiais */
+        @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=EB+Garamond:wght@400;700&display=swap');
+
+        body {
+            background-color: #1a1a1a;
+            color: #e0d8c3;
+            font-family: 'EB Garamond', serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transition: background-color 0.5s ease;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 450px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+            border: 1px solid #c5a059;
+            box-sizing: border-box;
+        }
+
+        h1 { font-family: 'MedievalSharp', cursive; font-size: 1.8rem; margin-bottom: 20px; color: #c5a059; }
+        
+        .btn-principal, .btn-reset {
+            background: #c5a059;
+            color: #000;
+            border: none;
+            padding: 18px 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .pergunta-texto { font-size: 1.3rem; margin-bottom: 25px; font-weight: bold; line-height: 1.4; }
+        .opcoes { display: flex; flex-direction: column; gap: 12px; }
+
+        .btn-opcao {
+            background: #2a2a2a;
+            color: #fff;
+            border: 1px solid #4a3b22;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* Cores de Fundo por Casa */
+        .resultado-grifinoria { background-color: #740001 !important; color: #eeba30 !important; }
+        .resultado-sonserina { background-color: #1a472a !important; color: #aaaaaa !important; }
+        .resultado-corvinal { background-color: #0e1a40 !important; color: #946b2d !important; }
+        .resultado-lufalufa { background-color: #ecb939 !important; color: #000000 !important; }
+
+        .hidden { display: none; }
+        #casa-nome { font-family: 'MedievalSharp', cursive; font-size: 3rem; margin: 10px 0; }
+        .frase-roupa { font-weight: bold; font-size: 1.2rem; margin: 15px 0; }
+    </style>
 </head>
 <body>
+
     <div class="container">
         <div id="tela-inicio">
             <h1>Descubra sua Casa de Hogwarts</h1>
-            <p class="subtitulo">O Chapéu Seletor está pronto para te avaliar.</p>
+            <p style="margin-bottom: 30px;">O Chapéu Seletor aguarda sua resposta.</p>
             <button onclick="iniciarQuiz()" class="btn-principal">Começar Quiz</button>
         </div>
 
         <div id="quiz" class="hidden">
-            <div class="progresso">Pergunta <span id="num-pergunta">1</span> de 5</div>
             <p id="pergunta" class="pergunta-texto"></p>
             <div class="opcoes">
-                <button class="btn-opcao"></button>
-                <button class="btn-opcao"></button>
-                <button class="btn-opcao"></button>
-                <button class="btn-opcao"></button>
+                <button class="btn-opcao" id="opt0"></button>
+                <button class="btn-opcao" id="opt1"></button>
+                <button class="btn-opcao" id="opt2"></button>
+                <button class="btn-opcao" id="opt3"></button>
             </div>
         </div>
 
+        <div id="resultado" class="hidden">
+            <p>O veredito foi proferido...</p>
+            <h2 id="casa-nome"></h2>
+            <p id="frase-roupa" class="frase-roupa"></p>
+            <p id="descricao" style="margin-bottom: 25px; line-height: 1.5;"></p>
+            <button onclick="resetar()" class="btn-reset">Refazer o Teste</button>
+        </div>
+    </div>
+
+    <script>
+        const perguntas = [
+            {
+                texto: "Se você encontrasse uma carteira perdida no meio da rua, o que faria?",
+                opcoes: [
+                    { t: "Procuraria o dono imediatamente, custe o que custar.", c: "grifinoria" },
+                    { t: "Analisaria os documentos para achar o dono de forma lógica.", c: "corvinal" },
+                    { t: "Daria uma olhada se tem algo útil para mim antes de decidir.", c: "sonserina" },
+                    { t: "Esperaria por perto para ver se o dono aparece.", c: "lufalufa" }
+                ]
+            },
+            {
+                texto: "Em um trabalho em grupo, você geralmente é quem:",
+                opcoes: [
+                    { t: "Toma a frente e assume os riscos pelo time.", c: "grifinoria" },
+                    { t: "Organiza as ideias e resolve os problemas complexos.", c: "corvinal" },
+                    { t: "Lidera com foco em garantir que o grupo seja o melhor.", c: "sonserina" },
+                    { t: "Ajuda todos a se darem bem e terminarem a tarefa juntos.", c: "lufalufa" }
+                ]
+            },
+            {
+                texto: "O que você mais admira em uma pessoa?",
+                opcoes: [
+                    { t: "A bravura de enfrentar medos e desafios.", c: "grifinoria" },
+                    { t: "A sabedoria e a curiosidade constante.", c: "corvinal" },
+                    { t: "A ambição de querer sempre alcançar o topo.", c: "sonserina" },
+                    { t: "A lealdade e a vontade de ajudar os outros.", c: "lufalufa" }
+                ]
+            },
+            {
+                texto: "Como você lida com um grande imprevisto?",
+                opcoes: [
+                    { t: "Enfrento de cabeça erguida sem hesitar.", c: "grifinoria" },
+                    { t: "Paro para analisar todas as soluções possíveis.", c: "corvinal" },
+                    { t: "Uso minha astúcia para resolver do jeito mais vantajoso.", c: "sonserina" },
+                    { t: "Trabalho com paciência até que tudo se resolva.", c: "lufalufa" }
+                ]
+            },
+            {
+                texto: "Se pudesse escolher um superpoder, qual seria?",
+                opcoes: [
+                    { t: "Invisibilidade para missões arriscadas.", c: "grifinoria" },
+                    { t: "Aprender qualquer coisa instantaneamente.", c: "corvinal" },
+                    { t: "Poder de persuasão para conseguir o que quero.", c: "sonserina" },
+                    { t: "Poder de cura para cuidar de quem precisa.", c: "lufalufa" }
+                ]
+            }
+        ];
+
+        const detalhes = {
+            grifinoria: { n: "Grifinória", f: "Suas roupas devem ser vermelhas e douradas.", d: "Você foi escolhido pela sua bravura e coragem inabalável." },
+            sonserina: { n: "Sonserina", f: "Suas roupas devem ser verdes e pratas.", d: "Sua ambição e astúcia te levarão a grandes conquistas." },
+            corvinal: { n: "Corvinal", f: "Suas roupas devem ser azuis e bronze.", d: "Sua inteligência e sede de saber são seus maiores tesouros." },
+            lufalufa: { n: "Lufa-Lufa", f: "Suas roupas devem ser amarelas e pretas.", d: "Sua lealdade e bondade fazem do mundo um lugar melhor." }
+        };
+
+        let atual = 0;
+        let pontos = { grifinoria: 0, corvinal: 0, sonserina: 0, lufalufa: 0 };
+
+        function iniciarQuiz() {
+            document.getElementById('tela-inicio').classList.add('hidden');
+            document.getElementById('quiz').classList.remove('hidden');
+            carregarPergunta();
+        }
+
+        function carregarPergunta() {
+            const p = perguntas[atual];
+            document.getElementById('pergunta').innerText = p.texto;
+            p.opcoes.forEach((opt, i) => {
+                const btn = document.getElementById('opt' + i);
+                btn.innerText = opt.t;
+                btn.onclick = () => responder(opt.c);
+            });
+        }
+
+        function responder(casa) {
+            pontos[casa]++;
+            atual++;
+            if (atual < perguntas.length) { carregarPergunta(); }
+            else { mostrarResultado(); }
+        }
+
+        function mostrarResultado() {
+            document.getElementById('quiz').classList.add('hidden');
+            const res = document.getElementById('resultado');
+            res.classList.remove('hidden');
+            const win = Object.keys(pontos).reduce((a, b) => pontos[a] > pontos[b] ? a : b);
+            
+            document.body.className = 'resultado-' + win;
+            document.getElementById('casa-nome').innerText = detalhes[win].n;
+            document.getElementById('frase-roupa').innerText = detalhes[win].f;
+            document.getElementById('descricao').innerText = detalhes[win].d;
+        }
+
+        function resetar() {
+            atual = 0;
+            pontos = { grifinoria: 0, corvinal: 0, sonserina: 0, lufalufa: 0 };
+            document.body.className = '';
+            document.getElementById('resultado').classList.add('hidden');
+            document.getElementById('tela-inicio').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
         <div id="resultado" class="hidden">
             <p class="anuncio">O Chapéu Seletor decidiu...</p>
             <h2 id="casa-nome"></h2>
