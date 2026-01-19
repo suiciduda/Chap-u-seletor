@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Chapéu Seletor | Cerimônia de Seleção</title>
+    <title>Descubra sua Casa de Hogwarts</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>O Chapéu Seletor</h1>
-            <div class="divider"></div>
-        </header>
+        <div id="tela-inicio">
+            <h1>Descubra sua Casa de Hogwarts</h1>
+            <p class="subtitulo">O Chapéu Seletor está pronto para te avaliar.</p>
+            <button onclick="iniciarQuiz()" class="btn-principal">Começar Quiz</button>
+        </div>
 
-        <div id="quiz">
-            <p id="pergunta" class="narrativa"></p>
+        <div id="quiz" class="hidden">
+            <div class="progresso">Pergunta <span id="num-pergunta">1</span> de 5</div>
+            <p id="pergunta" class="pergunta-texto"></p>
             <div class="opcoes">
                 <button class="btn-opcao"></button>
                 <button class="btn-opcao"></button>
@@ -24,13 +26,13 @@
         </div>
 
         <div id="resultado" class="hidden">
-            <p class="anuncio">O veredito foi proferido...</p>
+            <p class="anuncio">O Chapéu Seletor decidiu...</p>
             <h2 id="casa-nome"></h2>
-            <p id="descricao" class="narrativa"></p>
-            <button onclick="resetar()" class="btn-reset">Caminhar novamente pelo corredor</button>
+            <p id="frase-roupa" class="frase-destaque"></p>
+            <p id="descricao" class="descricao-texto"></p>
+            <button onclick="resetar()" class="btn-reset">Fazer o teste novamente</button>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
