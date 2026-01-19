@@ -2,27 +2,35 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>O Chapéu Seletor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Chapéu Seletor | Cerimônia de Seleção</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>O Chapéu Seletor</h1>
+        <header>
+            <h1>O Chapéu Seletor</h1>
+            <div class="divider"></div>
+        </header>
+
         <div id="quiz">
-            <p id="pergunta">O que você mais valoriza?</p>
+            <p id="pergunta" class="narrativa"></p>
             <div class="opcoes">
-                <button onclick="escolher('coragem')">A bravura acima de tudo</button>
-                <button onclick="escolher('sabedoria')">O conhecimento infinito</button>
-                <button onclick="escolher('ambicao')">O poder e o destino</button>
-                <button onclick="escolher('lealdade')">A justiça e o trabalho árduo</button>
+                <button class="btn-opcao"></button>
+                <button class="btn-opcao"></button>
+                <button class="btn-opcao"></button>
+                <button class="btn-opcao"></button>
             </div>
         </div>
+
         <div id="resultado" class="hidden">
+            <p class="anuncio">O veredito foi proferido...</p>
             <h2 id="casa-nome"></h2>
-            <p id="descricao"></p>
-            <button onclick="resetar()">Tentar Novamente</button>
+            <p id="descricao" class="narrativa"></p>
+            <button onclick="resetar()" class="btn-reset">Caminhar novamente pelo corredor</button>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
