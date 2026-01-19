@@ -1,61 +1,114 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const perguntas = [
-        { t: "Se você visse alguém sendo injustiçado na rua, o que faria?", o: [{t:"Interviria na hora, não importa o risco.", c:"grifinoria"}, {t:"Pensaria em um plano seguro para ajudar.", c:"corvinal"}, {t:"Avaliaria se ajudar me traz algum benefício.", c:"sonserina"}, {t:"Apoiaria a pessoa e veria se ela está bem.", c:"lufalufa"}] },
-        { t: "Em um trabalho de grupo, qual é o seu papel?", o: [{t:"O que toma a frente e lidera com coragem.", c:"grifinoria"}, {t:"O que faz as pesquisas e traz as ideias.", c:"corvinal"}, {t:"O que garante que o grupo se destaque.", c:"sonserina"}, {t:"O que ajuda todos e mantém a harmonia.", c:"lufalufa"}] },
-        { t: "O que você mais valoriza em uma pessoa?", o: [{t:"A bravura e a honestidade.", c:"grifinoria"}, {t:"A inteligência e a vontade de aprender.", c:"corvinal"}, {t:"A ambição e a liderança.", c:"sonserina"}, {t:"A lealdade e a gentileza.", c:"lufalufa"}] },
-        { t: "Como você lida com um grande desafio?", o: [{t:"Vou com tudo, enfrentando meus medos.", c:"grifinoria"}, {t:"Analiso todos os lados antes de agir.", c:"corvinal"}, {t:"Uso minha astúcia para vencer.", c:"sonserina"}, {t:"Trabalho duro e sou paciente.", c:"lufalufa"}] },
-        { t: "Se encontrasse uma carteira perdida, o que faria?", o: [{t:"Procuraria o dono imediatamente.", c:"grifinoria"}, {t:"Analisaria os documentos logicamente.", c:"corvinal"}, {t:"Veria se há algo útil para mim.", c:"sonserina"}, {t:"Esperaria por perto para ver se o dono volta.", c:"lufalufa"}] }
-    ];
+const questions = [
+    {
+        q: "Em um passeio, vocês percebem que pegaram o caminho errado. O que você faz?",
+        options: [
+            { text: "Tomo a frente e guio o grupo pelo caminho mais desafiador.", house: "Gryffindor" },
+            { text: "Analiso o mapa para entender logicamente onde erramos.", house: "Ravenclaw" },
+            { text: "Mantenho a calma e ajudo a tranquilizar quem estiver nervoso.", house: "Hufflepuff" },
+            { text: "Sugiro o caminho que vai fazer a gente chegar mais rápido.", house: "Slytherin" }
+        ]
+    },
+    {
+        q: "Se um amigo te conta um segredo importante, como você reage?",
+        options: [
+            { text: "Incentivo meu amigo a enfrentar o problema de cabeça erguida.", house: "Gryffindor" },
+            { text: "Ouve com atenção e tento dar um conselho sábio.", house: "Ravenclaw" },
+            { text: "Guardo a sete chaves e defendo meu amigo sempre.", house: "Hufflepuff" },
+            { text: "Guardo o segredo, pois informação pode ser útil no futuro.", house: "Slytherin" }
+        ]
+    },
+    {
+        q: "No seu tempo livre, o que você mais gosta de fazer?",
+        options: [
+            { text: "Praticar esportes, jogar ou fazer algo com adrenalina.", house: "Gryffindor" },
+            { text: "Ler, aprender algo novo ou resolver desafios.", house: "Ravenclaw" },
+            { text: "Estar com quem eu amo, cuidar de plantas ou de um pet.", house: "Hufflepuff" },
+            { text: "Planejar meus objetivos ou focar em um projeto meu.", house: "Slytherin" }
+        ]
+    },
+    {
+        q: "Você encontra uma carteira perdida na rua. Qual seu primeiro pensamento?",
+        options: [
+            { text: "Vou procurar o dono agora mesmo, não importa o trabalho.", house: "Gryffindor" },
+            { text: "Vou olhar os documentos para achar a pessoa de um jeito prático.", house: "Ravenclaw" },
+            { text: "Vou entregar no lugar mais próximo para o dono não sofrer.", house: "Hufflepuff" },
+            { text: "Vou devolver, pois fazer o certo traz reconhecimento e boas conexões.", house: "Slytherin" }
+        ]
+    },
+    {
+        q: "Qual dessas qualidades as pessoas mais elogiam em você?",
+        options: [
+            { text: "Minha coragem e o fato de eu não ter medo de me arriscar.", house: "Gryffindor" },
+            { text: "Minha inteligência e o jeito como eu sempre sei as coisas.", house: "Ravenclaw" },
+            { text: "Minha bondade e o fato de ser uma pessoa em quem todos confiam.", house: "Hufflepuff" },
+            { text: "Minha determinação e o foco em conseguir o que eu desejo.", house: "Slytherin" }
+        ]
+    }
+];
 
-    let atual = 0;
-    let pontos = { grifinoria: 0, corvinal: 0, sonserina: 0, lufalufa: 0 };
+let currentQuestion = 0;
+let scores = { Gryffindor: 0, Slytherin: 0, Ravenclaw: 0, Hufflepuff: 0 };
 
-    const btnIniciar = document.getElementById('btn-iniciar');
+const houseInfo = {
+    Gryffindor: {
+        name: "Grifinória",
+        colors: "Vermelho e Dourado",
+        desc: "Você é uma pessoa brava e decidida. Não tem medo de desafios e sempre protege quem está ao seu lado."
+    },
+    Slytherin: {
+        name: "Sonserina",
+        colors: "Verde e Prata",
+        desc: "Você é uma pessoa ambiciosa e astuta. Sabe exatamente onde quer chegar e usa sua inteligência para conquistar seus objetivos."
+    },
+    Ravenclaw: {
+        name: "Corvinal",
+        colors: "Azul e Bronze",
+        desc: "Você valoriza o conhecimento e a sabedoria. Sua mente é curiosa e você sempre busca entender o mundo ao seu redor."
+    },
+    Hufflepuff: {
+        name: "Lufa-Lufa",
+        colors: "Amarelo e Preto",
+        desc: "Você é uma pessoa leal, justa e muito paciente. Valoriza a amizade e o trabalho duro, sendo o porto seguro de muita gente."
+    }
+};
+
+function showQuestion() {
+    const q = questions[currentQuestion];
+    document.getElementById("question-title").innerText = q.q;
+    const list = document.getElementById("options-list");
+    list.innerHTML = "";
     
-    if(btnIniciar) {
-        btnIniciar.onclick = function() {
-            document.getElementById('tela-inicio').classList.add('hidden');
-            document.getElementById('quiz').classList.remove('hidden');
-            mostrarPergunta();
+    q.options.forEach(opt => {
+        const btn = document.createElement("button");
+        btn.innerText = opt.text;
+        btn.onclick = () => {
+            scores[opt.house]++;
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
         };
-    }
+        list.appendChild(btn);
+    });
+}
 
-    function mostrarPergunta() {
-        const p = perguntas[atual];
-        document.getElementById('pergunta').innerText = p.t;
-        const container = document.getElementById('opcoes-container');
-        container.innerHTML = "";
-        
-        p.o.forEach(opt => {
-            const btn = document.createElement('button');
-            btn.className = "btn-opcao";
-            btn.innerText = opt.t;
-            btn.onclick = function() {
-                pontos[opt.c]++;
-                atual++;
-                if(atual < perguntas.length) mostrarPergunta();
-                else finalizar();
-            };
-            container.appendChild(btn);
-        });
-    }
+function showResult() {
+    document.getElementById("question-box").classList.add("hidden");
+    document.getElementById("intro-text").classList.add("hidden");
+    const resultScreen = document.getElementById("result-screen");
+    resultScreen.classList.remove("hidden");
+    
+    const winner = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+    const info = houseInfo[winner];
+    
+    const houseTitle = document.getElementById("house-result");
+    houseTitle.innerText = info.name;
+    houseTitle.className = winner;
+    
+    document.getElementById("house-colors").innerText = "Cor predominante: " + info.colors;
+    document.getElementById("house-description").innerText = "O porquê você tirou essa casa: " + info.desc;
+}
 
-    function finalizar() {
-        document.getElementById('quiz').classList.add('hidden');
-        const res = document.getElementById('resultado');
-        res.classList.remove('hidden');
-        const win = Object.keys(pontos).reduce((a, b) => pontos[a] > pontos[b] ? a : b);
-        document.body.className = 'resultado-' + win;
-        
-        const info = {
-            grifinoria: ["Grifinória", "Suas roupas devem ser vermelhas e douradas.", "Você foi escolhido pela sua bravura e coragem inabalável."],
-            corvinal: ["Corvinal", "Suas roupas devem ser azuis e bronze.", "Sua inteligência e sede de saber são seus maiores tesouros."],
-            sonserina: ["Sonserina", "Suas roupas devem ser verdes e pratas.", "Sua ambição e astúcia te levarão a grandes conquistas."],
-            lufalufa: ["Lufa-Lufa", "Suas roupas devem ser amarelas e pretas.", "Sua lealdade e bondade fazem do mundo um lugar melhor."]
-        };
-
-        document.getElementById('casa-nome').innerText = info[win][0];
-        document.getElementById('frase-roupa').innerText = info[win][1];
-        document.getElementById('descricao').innerText = info[win][2];
-    }
-});
+showQuestion();
