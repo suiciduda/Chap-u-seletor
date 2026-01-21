@@ -77,10 +77,26 @@ button:active {
 }
 
 /* Classes de cores específicas */
-.Gryffindor { color: #ae0001; } /* Vermelho */
-.Slytherin { color: #2a623d; }  /* Verde */
-.Ravenclaw { color: #222f5b; }  /* Azul */
-.Hufflepuff { color: #ecb939; } /* Amarelo */
+/* Classes de cores específicas - Versão Vibrante */
+.Gryffindor { 
+    color: #ff0000; 
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+} 
+
+.Slytherin { 
+    color: #50c878; 
+    text-shadow: 0 0 8px rgba(80, 200, 120, 0.3);
+}  
+
+.Ravenclaw { 
+    color: #0066ff; 
+    text-shadow: 0 0 8px rgba(0, 102, 255, 0.3);
+}  
+
+.Hufflepuff { 
+    color: #ffdb58; 
+    text-shadow: 0 0 8px rgba(255, 219, 88, 0.3);
+}
 
 #house-colors {
     font-weight: bold;
