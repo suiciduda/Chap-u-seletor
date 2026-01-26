@@ -1,47 +1,47 @@
 const questions = [
     {
-        q: "Em um passeio, vocês percebem que pegaram o caminho errado. O que você faz?",
+        q: "1: Durante as provas de fim de ano, você percebe que um de seus colegas estava usando uma pena encantada. Mesmo assim, você fica em primeiro lugar na turma, mas ele fica em segundo. O que você faz?",
         options: [
-            { text: "Tomo a frente e guio o grupo pelo caminho mais desafiador.", house: "Gryffindor" },
-            { text: "Analiso o mapa para entender logicamente onde erramos.", house: "Ravenclaw" },
-            { text: "Mantenho a calma e ajudo a tranquilizar quem estiver nervoso.", house: "Hufflepuff" },
-            { text: "Sugiro o caminho que vai fazer a gente chegar mais rápido.", house: "Slytherin" }
+            { text: "Avise o professor imediatamente – colar é errado, não importa o quê.", house: "Hufflepuff" },
+            { text: "Nada, mas se eu não tivesse ficado em primeiro lugar na turma, com certeza contaria ao professor.", house: "Slytherin" },
+            { text: "Incentive o outro aluno a confessar ao professor o que fez.", house: "Gryffindor" },
+            { text: "Dêem-lhes um \"toca aqui\" por terem conseguido levar a pena escondida para a prova.", house: "Ravenclaw" }
         ]
     },
     {
-        q: "Se um amigo te conta um segredo importante, como você reage?",
+        q: "2: Você ficaria muito magoado(a) se alguém lhe chamasse de:",
         options: [
-            { text: "Incentivo meu amigo a enfrentar o problema de cabeça erguida.", house: "Gryffindor" },
-            { text: "Ouve com atenção e tento dar um conselho sábio.", house: "Ravenclaw" },
-            { text: "Guardo a sete chaves e defendo meu amigo sempre.", house: "Hufflepuff" },
-            { text: "Guardo o segredo, pois informação pode ser útil no futuro.", house: "Slytherin" }
+            { text: "Fraco", house: "Gryffindor" },
+            { text: "Ignorante", house: "Ravenclaw" },
+            { text: "Cruel", house: "Hufflepuff" },
+            { text: "Tedioso", house: "Slytherin" }
         ]
     },
     {
-        q: "No seu tempo livre, o que você mais gosta de fazer?",
+        q: "3: Qual dessas citações de Dumbledore lhe chama a atenção?",
         options: [
-            { text: "Praticar esportes, jogar ou fazer algo com adrenalina.", house: "Gryffindor" },
-            { text: "Ler, aprender algo novo ou resolver desafios.", house: "Ravenclaw" },
-            { text: "Estar com quem eu amo, cuidar de plantas ou de um pet.", house: "Hufflepuff" },
-            { text: "Planejar meus objetivos ou focar em um projeto meu.", house: "Slytherin" }
+            { text: "“Tenha pena dos vivos e, sobretudo, daqueles que vivem sem amor.”", house: "Hufflepuff" },
+            { text: "“Na minha nada modesta opinião, as palavras são a nossa fonte mais inesgotável de magia.”", house: "Ravenclaw" },
+            { text: "“Não importa o que alguém seja ao nascer, mas sim o que se torna.”", house: "Slytherin" },
+            { text: "“Não adianta ficar preso a sonhos e esquecer de viver.”", house: "Gryffindor" }
         ]
     },
     {
-        q: "Você encontra uma carteira perdida na rua. Qual seu primeiro pensamento?",
+        q: "4: Qual destas opções descreve com maior precisão a sua relação com os seus amigos mais próximos?",
         options: [
-            { text: "Vou procurar o dono agora mesmo, não importa o trabalho.", house: "Gryffindor" },
-            { text: "Vou olhar os documentos para achar a pessoa de um jeito prático.", house: "Ravenclaw" },
-            { text: "Vou entregar no lugar mais próximo para o dono não sofrer.", house: "Hufflepuff" },
-            { text: "Vou devolver, pois fazer o certo traz reconhecimento e boas conexões.", house: "Slytherin" }
+            { text: "Adoro estar rodeada de pessoas – quanto mais amigos eu tiver, melhor!", house: "Hufflepuff" },
+            { text: "Tenho alguns amigos muito próximos em quem confiaria minha vida.", house: "Gryffindor" },
+            { text: "Costumo ser cauteloso com pessoas novas, então não faço amizades com frequência.", house: "Ravenclaw" },
+            { text: "Tenho feito amizade com pessoas que podem me ajudar a ter sucesso.", house: "Slytherin" }
         ]
     },
     {
-        q: "Qual dessas qualidades as pessoas mais elogiam em você?",
+        q: "5: O que você veria no Espelho de Ojesed?",
         options: [
-            { text: "Minha coragem e o fato de eu não ter medo de me arriscar.", house: "Gryffindor" },
-            { text: "Minha inteligência e o jeito como eu sempre sei as coisas.", house: "Ravenclaw" },
-            { text: "Minha bondade e o fato de ser uma pessoa em quem todos confiam.", house: "Hufflepuff" },
-            { text: "Minha determinação e o foco em conseguir o que eu desejo.", house: "Slytherin" }
+            { text: "Eu, rodeado de riquezas.", house: "Slytherin" },
+            { text: "Eu, rodeada pela minha amada família e amigos.", house: "Hufflepuff" },
+            { text: "Eu, acima de tudo, sou o mais conhecedor.", house: "Ravenclaw" },
+            { text: "Eu, vivendo uma aventura maravilhosa.", house: "Gryffindor" }
         ]
     }
 ];
